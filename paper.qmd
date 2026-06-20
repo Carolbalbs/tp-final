@@ -1,0 +1,161 @@
+---
+title: "Título do Trabalho"
+subtitle: "Subtítulo (opcional)"
+shortauthors: "Autor1 et al."
+author:
+  - name: Nome do Autor 1
+    email: autor1@instituicao.br
+    affiliations:
+      - name: Nome da Instituição
+        city: Cidade
+        state: Estado
+        country: Brasil
+  - name: Nome do Autor 2
+    email: autor2@instituicao.br
+    affiliations:
+      - name: Nome da Instituição
+        city: Cidade
+        state: Estado
+        country: Brasil
+abstract: |
+  Insira aqui o resumo do trabalho.
+keywords: "palavra-chave1, palavra-chave2, palavra-chave3"
+bibliography: referencias.bib
+format:
+  pdf:
+    pdf-engine: pdflatex
+    template-partials:
+      - doc-class.tex
+      - title.tex
+      - before-body.tex
+highlight-style: none        # ← desativa highlighting
+
+---
+
+::: {.content-visible when-format="html"}
+> [!TIP]
+> Você pode fazer o download da versão formatada em PDF deste artigo aqui: [paper.pdf](paper.pdf)
+:::
+
+# Cálculo de Determinação do Grafo a ser Utilizado
+
+
+Descreva aqui o processo utilizado para determinar qual grafo será analisado no trabalho. Apresente os critérios de seleção, as características dos dados originais e justifique a escolha com base nos objetivos do estudo.
+
+O código-fonte, scripts e conjunto de dados utilizados estão disponíveis no repositório:
+
+- **Repositório GitHub:** <https://github.com/seu-usuario/seu-repositorio>
+- Códigos/scripts utilizados (Python ou R; se Python, recomenda-se Jupyter Notebook: <https://jupyter.org/>)
+- Conjunto de dados tratados
+- `README` com instruções de execução do código
+
+# Descrição do Grafo Original
+
+Apresente as características do grafo original: número de vértices, número de arestas, tipo (dirigido/não-dirigido, ponderado/não-ponderado), densidade, componentes conexas, distribuição de grau, entre outros atributos relevantes.
+
+## Tratamento Realizado
+
+Descreva os pré-processamentos e tratamentos aplicados ao grafo antes da análise. Exemplos incluem: remoção de nós isolados, normalização de pesos, filtragem de arestas duplicadas, conversão de formato, tratamento de valores ausentes, entre outros. Mencione as ferramentas e scripts utilizados em cada etapa.
+
+# Metodologia
+
+Descreva os métodos, algoritmos e técnicas aplicados na análise do grafo. Inclua referências às métricas calculadas (e.g., centralidade de grau, betweenness, closeness, coeficiente de agrupamento, pagerank) e justifique as escolhas metodológicas em relação aos objetivos do trabalho.
+
+Exemplo de equação de centralidade de grau:
+
+$$
+C_D(v) = \frac{\deg(v)}{n - 1}
+$$
+
+onde $\deg(v)$ é o grau do vértice $v$ e $n$ é o número total de vértices no grafo.
+
+# Resultados Obtidos
+
+Apresente os resultados da análise. Utilize tabelas e gráficos para ilustrar os achados. Para cada visualização, inclua um parágrafo explicativo.
+
+## Tabelas e Gráficos
+
+Insira aqui as tabelas e gráficos com os resultados obtidos. Exemplo de tabela com métricas do grafo:
+
+::: {.content-visible when-format="pdf"}
+\begin{table}[h]
+  \caption{Métricas gerais do grafo analisado}
+  \label{tbl-metricas}
+  \begin{tabular}{lc}
+    \toprule
+    \textbf{Métrica} & \textbf{Valor} \\
+    \midrule
+    Número de vértices    & 0000 \\
+    Número de arestas     & 0000 \\
+    Densidade             & 0.000 \\
+    Diâmetro              & 00 \\
+    Grau médio            & 0.00 \\
+    Coef.\ de agrupamento & 0.000 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+:::
+
+::: {.content-visible when-format="html"}
+| **Métrica** | **Valor** |
+|---|---|
+| Número de vértices | 0000 |
+| Número de arestas | 0000 |
+| Densidade | 0.000 |
+| Diâmetro | 00 |
+| Grau médio | 0.00 |
+| Coef. de agrupamento | 0.000 |
+
+: Métricas gerais do grafo analisado {#tbl-metricas}
+:::
+
+::: {#fig-dist-grau}
+```
+[Distribuição de Grau - Substitua pela figura real]
+```
+
+Distribuição de grau do grafo. [Substitua pela figura real.]
+:::
+
+## Comentários para Cada Tabela/Gráfico
+
+**@tbl-metricas:** Apresente aqui uma interpretação dos valores encontrados. Discuta o que cada métrica revela sobre a estrutura do grafo, comparando com os valores esperados para o tipo de rede em estudo.
+
+**@fig-dist-grau:** Descreva o padrão observado na distribuição de grau. Verifique se a distribuição segue uma lei de potência (scale-free), distribuição aleatória ou outro modelo.
+
+## Respostas às Perguntas Obrigatórias
+
+Responda objetivamente cada uma das perguntas obrigatórias propostas na atividade:
+
+1. **[Pergunta 1]:** Insira aqui a pergunta e sua resposta fundamentada nos resultados obtidos.
+2. **[Pergunta 2]:** Insira aqui a pergunta e sua resposta fundamentada nos resultados obtidos.
+3. **[Pergunta N]:** Insira aqui a pergunta e sua resposta fundamentada nos resultados obtidos.
+
+# Discussão Crítica
+
+Interprete os resultados obtidos de forma crítica. Relacione os achados com a literatura existente sobre análise de redes e grafos [@exemplo-ref]. Discuta:
+
+- Limitações da análise realizada;
+- Possíveis vieses introduzidos pelo processo de tratamento dos dados;
+- Comparação com resultados de trabalhos relacionados;
+- Implicações práticas ou teóricas dos achados.
+
+# Conclusão
+
+Sintetize os principais achados do trabalho, retomando os objetivos iniciais e verificando se foram alcançados. Destaque as contribuições do estudo e aponte possíveis direcionamentos para trabalhos futuros, como a análise de grafos dinâmicos, a aplicação de técnicas de aprendizado de máquina sobre o grafo, ou a extensão da metodologia para outros domínios.
+
+## Agradecimentos {.unnumbered}
+
+Insira aqui os agradecimentos a pessoas, instituições ou fontes de financiamento que contribuíram para a realização do trabalho.
+
+# Apêndice {.unnumbered}
+
+## Repositório e Instruções de Execução
+
+O código-fonte completo está disponível em: <https://github.com/seu-usuario/seu-repositorio>
+
+O repositório contém:
+
+- **scripts/** — códigos Python/R utilizados nas análises (recomenda-se Jupyter Notebook: <https://jupyter.org/>)
+- **data/** — conjunto de dados tratados utilizados
+- **README.md** — instruções detalhadas de como executar o código e reproduzir os resultados

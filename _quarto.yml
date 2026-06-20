@@ -1,0 +1,33 @@
+project:
+  type: book
+  output-dir: docs
+  
+book:
+  title: ANALISANDO SNAP
+  author: Ana Carolina Balbino
+  sidebar:
+    logo: grafos.gif
+  repo-url: https://github.com/carolbalbs/snap-analysis
+  repo-branch: master
+  repo-actions: [issue]
+  sharing: [twitter, linkedin]
+  chapters:
+    - index.md
+
+    - part: Artigo
+      chapters:
+        - paper.qmd
+    - part: Scripts
+      chapters:
+        - parte1.ipynb
+        - parte2.ipynb
+        - parte3.ipynb
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    header-includes: |
+      \providecommand{\textasciicaret}{\^{}}
+
+

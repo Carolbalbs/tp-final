@@ -1,0 +1,41 @@
+{
+  "index.md": {
+    "index.html": "0c48a0d3"
+  },
+  "altair_introduction.ipynb": {
+    "altair_introduction.html": "bfb32037"
+  },
+  "altair_marks_encoding.ipynb": {
+    "altair_marks_encoding.html": "8ee4c8b6"
+  },
+  "altair_data_transformation.ipynb": {
+    "altair_data_transformation.html": "c738bcab"
+  },
+  "altair_scales_axes_legends.ipynb": {
+    "altair_scales_axes_legends.html": "7bce410e"
+  },
+  "altair_view_composition.ipynb": {
+    "altair_view_composition.html": "f878e728"
+  },
+  "altair_interaction.ipynb": {
+    "altair_interaction.html": "284e6399"
+  },
+  "altair_cartographic.ipynb": {
+    "altair_cartographic.html": "ece3ef37"
+  },
+  "altair_debugging.ipynb": {
+    "altair_debugging.html": "ff29c4bd"
+  },
+  "paper.qmd": {
+    "paper.html": "f57b3b9d"
+  },
+  "parte1.ipynb": {
+    "parte1.html": "df39081b"
+  },
+  "parte2.ipynb": {
+    "parte2.html": "df6ea560"
+  },
+  "parte3.ipynb": {
+    "parte3.html": "c6ce02db"
+  }
+}

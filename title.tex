@@ -1,0 +1,15 @@
+$for(by-author)$
+\author{$by-author.name.literal$}
+\email{$by-author.email$}
+\affiliation{%
+  \institution{$for(by-author.affiliations)$$it.name$$endfor$}
+  \city{$for(by-author.affiliations)$$it.city$$endfor$}
+  \state{$for(by-author.affiliations)$$it.state$$endfor$}
+  \country{$for(by-author.affiliations)$$it.country$$endfor$}
+}
+$endfor$
+
+\renewcommand{\shortauthors}{$if(shortauthors)$$shortauthors$$else$Autores$endif$}
+
+\title{$title$}
+$if(subtitle)$\subtitle{$subtitle$}$endif$

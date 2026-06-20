@@ -1,0 +1,21 @@
+\documentclass[sigconf]{webmedia}
+
+\usepackage{lmodern}
+\usepackage[brazil]{babel}
+\usepackage{hyperref}
+
+%% BibTeX logo
+\AtBeginDocument{%
+  \providecommand\BibTeX{{%
+    \normalfont B\kern-0.5em{\scshape i\kern-0.25em b}\kern-0.8em\TeX}}}
+
+\settopmatter{printacmref=false, printfolios=false}
+
+%% Configuração do evento -- ajuste conforme necessário
+\setevent{webmedia}
+\proceedingsDetails[WebMedia'2026]{Proceedings of the Brazilian Symposium on Multimedia and the Web}{2026}{Lavras/MG, Brazil}
+\ISSN{2966-2753}
+
+% Resolve conflito de \Bbbk entre o newtxmath (carregado pela classe) e o amssymb (carregado pelo Pandoc)
+\let\Bbbk\undefined
+

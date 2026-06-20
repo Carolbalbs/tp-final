@@ -1,0 +1,109 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "ANALISANDO SNAP",
+    "section": "",
+    "text": "Introduction\nA data visualization curriculum of interactive notebooks, using Vega-Lite and Altair. This book contains a series of Python-based Jupyter notebooks, a corresponding set of JavaScript notebooks are available online on Observable.",
+    "crumbs": [
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "index.html#getting-started",
+    "href": "index.html#getting-started",
+    "title": "ANALISANDO SNAP",
+    "section": "Getting Started",
+    "text": "Getting Started\nThe visualization curriculum can be used either online or on your local computer. You can view and interact with the plots directly in this Jupyter Book. If you want to modify the code, you have a few different options:\n\nTo read JavaScript notebooks online using Observable, navigate to the “Observable” page above and click the corresponding notebook.\nTo read Python notebooks online using Colab, click the corresponding section in this book, hover over the little rocket ship at the top of the page, and select “Colab” from the menu.\nTo read Python notebooks locally, follow the instructions below.\n\n\nLocal Installation\n\nInstall Altair and a notebook environment. The most recent versions of these notebooks use Altair version 4.\nDownload the notebooks from the releases page. Typically you will want to use the most recent release. (If you wish to use notebooks for Altair version 3, download the Altair v3.2 release.)\nOpen the notebooks in your local notebook environment. For example, if you have JupyterLab installed (v1.0 or higher is required), run jupyter lab within the directory containing the notebooks.\n\nDepending on your programming environment (and whether or not you have a live internet connection), you may want to specify a particular renderer for Altair.",
+    "crumbs": [
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "index.html#credits",
+    "href": "index.html#credits",
+    "title": "ANALISANDO SNAP",
+    "section": "Credits",
+    "text": "Credits\nDeveloped at the University of Washington by Jeffrey Heer, Dominik Moritz, Jake VanderPlas, and Brock Craft. Thanks to the UW Interactive Data Lab and Arvind Satyanarayan for their valuable input and feedback! Thanks also to the students of UW CSE512 Spring 2019, the first group to use these notebooks within an integrated course curriculum.",
+    "crumbs": [
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "paper.html",
+    "href": "paper.html",
+    "title": "1  Título do Trabalho",
+    "section": "",
+    "text": "2 Cálculo de Determinação do Grafo a ser Utilizado\nDescreva aqui o processo utilizado para determinar qual grafo será analisado no trabalho. Apresente os critérios de seleção, as características dos dados originais e justifique a escolha com base nos objetivos do estudo.\nO código-fonte, scripts e conjunto de dados utilizados estão disponíveis no repositório:",
+    "crumbs": [
+      "Artigo",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Título do Trabalho</span>"
+    ]
+  },
+  {
+    "objectID": "paper.html#tratamento-realizado",
+    "href": "paper.html#tratamento-realizado",
+    "title": "1  Título do Trabalho",
+    "section": "3.1 Tratamento Realizado",
+    "text": "3.1 Tratamento Realizado\nDescreva os pré-processamentos e tratamentos aplicados ao grafo antes da análise. Exemplos incluem: remoção de nós isolados, normalização de pesos, filtragem de arestas duplicadas, conversão de formato, tratamento de valores ausentes, entre outros. Mencione as ferramentas e scripts utilizados em cada etapa.",
+    "crumbs": [
+      "Artigo",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Título do Trabalho</span>"
+    ]
+  },
+  {
+    "objectID": "paper.html#tabelas-e-gráficos",
+    "href": "paper.html#tabelas-e-gráficos",
+    "title": "1  Título do Trabalho",
+    "section": "5.1 Tabelas e Gráficos",
+    "text": "5.1 Tabelas e Gráficos\nInsira aqui as tabelas e gráficos com os resultados obtidos. Exemplo de tabela com métricas do grafo:\n\n\n\nTable 5.1: Métricas gerais do grafo analisado\n\n\n\n\n\nMétrica\nValor\n\n\n\n\nNúmero de vértices\n0000\n\n\nNúmero de arestas\n0000\n\n\nDensidade\n0.000\n\n\nDiâmetro\n00\n\n\nGrau médio\n0.00\n\n\nCoef. de agrupamento\n0.000\n\n\n\n\n\n\n\n\n\n[Distribuição de Grau - Substitua pela figura real]\n\n\nFigure 5.1: Distribuição de grau do grafo. [Substitua pela figura real.]",
+    "crumbs": [
+      "Artigo",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Título do Trabalho</span>"
+    ]
+  },
+  {
+    "objectID": "paper.html#comentários-para-cada-tabelagráfico",
+    "href": "paper.html#comentários-para-cada-tabelagráfico",
+    "title": "1  Título do Trabalho",
+    "section": "5.2 Comentários para Cada Tabela/Gráfico",
+    "text": "5.2 Comentários para Cada Tabela/Gráfico\nTable 5.1: Apresente aqui uma interpretação dos valores encontrados. Discuta o que cada métrica revela sobre a estrutura do grafo, comparando com os valores esperados para o tipo de rede em estudo.\nFigure 5.1: Descreva o padrão observado na distribuição de grau. Verifique se a distribuição segue uma lei de potência (scale-free), distribuição aleatória ou outro modelo.",
+    "crumbs": [
+      "Artigo",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Título do Trabalho</span>"
+    ]
+  },
+  {
+    "objectID": "paper.html#respostas-às-perguntas-obrigatórias",
+    "href": "paper.html#respostas-às-perguntas-obrigatórias",
+    "title": "1  Título do Trabalho",
+    "section": "5.3 Respostas às Perguntas Obrigatórias",
+    "text": "5.3 Respostas às Perguntas Obrigatórias\nResponda objetivamente cada uma das perguntas obrigatórias propostas na atividade:\n\n[Pergunta 1]: Insira aqui a pergunta e sua resposta fundamentada nos resultados obtidos.\n[Pergunta 2]: Insira aqui a pergunta e sua resposta fundamentada nos resultados obtidos.\n[Pergunta N]: Insira aqui a pergunta e sua resposta fundamentada nos resultados obtidos.",
+    "crumbs": [
+      "Artigo",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Título do Trabalho</span>"
+    ]
+  },
+  {
+    "objectID": "paper.html#agradecimentos",
+    "href": "paper.html#agradecimentos",
+    "title": "1  Título do Trabalho",
+    "section": "Agradecimentos",
+    "text": "Agradecimentos\nInsira aqui os agradecimentos a pessoas, instituições ou fontes de financiamento que contribuíram para a realização do trabalho.",
+    "crumbs": [
+      "Artigo",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Título do Trabalho</span>"
+    ]
+  },
+  {
+    "objectID": "paper.html#repositório-e-instruções-de-execução",
+    "href": "paper.html#repositório-e-instruções-de-execução",
+    "title": "1  Título do Trabalho",
+    "section": "7.1 Repositório e Instruções de Execução",
+    "text": "7.1 Repositório e Instruções de Execução\nO código-fonte completo está disponível em: https://github.com/seu-usuario/seu-repositorio\nO repositório contém:\n\nscripts/ — códigos Python/R utilizados nas análises (recomenda-se Jupyter Notebook: https://jupyter.org/)\ndata/ — conjunto de dados tratados utilizados\nREADME.md — instruções detalhadas de como executar o código e reproduzir os resultados\n\n\n\n\n\nAutor, Exemplo. 2026. “Título Do Artigo de Exemplo.” Revista de Exemplo 1: 1–10.",
+    "crumbs": [
+      "Artigo",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Título do Trabalho</span>"
+    ]
+  }
+]
