@@ -1,0 +1,2 @@
+usage: worker.py [-h] --mode {baseline,random,hubs} [--rep REP]
+worker.py: error: the following arguments are required: --mode

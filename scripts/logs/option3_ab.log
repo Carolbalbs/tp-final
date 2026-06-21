@@ -1,0 +1,58 @@
+=================================================================
+PARTE III — ANÁLISE ESTRUTURAL (GPU)
+  Início: 2026-06-20 22:59:59
+=================================================================
+
+[0] Carregando grafo...
+  3,997,962 nós | 34,681,189 arestas  [1.5s]
+
+═════════════════════════════════════════════════════════════════
+Q1. SMALL-WORLD (Apêndice A — implementação manual)
+═════════════════════════════════════════════════════════════════
+
+  [1a] Clustering manual (triangle_count) em 500 nós...
+  C_real : 0.063742  [7.6s]
+
+  [1b] Comprimento médio manual em 500 nós...
+  L_real : 5.5592  [80.0s]
+
+  C_random (ER)   : 0.00000868
+  L_random (ER)   : 4.2860
+  C_real/C_random : 7344.26x  (deve ser >> 1)
+  L_real/L_random : 1.2970   (deve ser ≈ 1)
+  sigma           : 5662.29  (SMALL-WORLD ✓)
+
+═════════════════════════════════════════════════════════════════
+Q2. LEI DE POTÊNCIA (Apêndice B)
+═════════════════════════════════════════════════════════════════
+  Gamma OLS (log-log, k>=10): 2.440
+  R²                            : 0.9241
+  p-value                       : 0.00e+00
+  Gamma MLE (Hill)              : 1.768
+  CONCLUSÃO: Lei de potência ✓ — scale-free
+
+Gerando visualizações Q1 e Q2...
+  Figura salva: /shared/parte3_q1q2.png
+
+=================================================================
+TABELA RESUMO — Q1 e Q2
+=================================================================
+Métrica                                Valor                     Tipo
+----------------------------------------------------------------------
+
+── Q1. SMALL-WORLD ──
+  C_real (manual k=500)                0.063742                  Amostragem
+  C_random (Erdős–Rényi)               0.00000868                Teórico
+  C_real / C_random                    7344.26x                  
+  L_real (manual k=500)                5.5592                    Amostragem
+  L_random (Erdős–Rényi)               4.2860                    Teórico
+  L_real / L_random                    1.2970                    
+  Sigma                                5662.29                   sigma>1 → SW
+
+── Q2. LEI DE POTÊNCIA ──
+  Gamma OLS                            2.440                     Exato
+  Gamma MLE (Hill)                     1.768                     Exato
+  R²                                   0.9241                    
+  Scale-free                           SIM                       
+
+  Fim: 2026-06-20 23:01:29

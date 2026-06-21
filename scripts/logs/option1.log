@@ -1,0 +1,66 @@
+=================================================================
+PARTE I — Grafo Completo LiveJournal (GPU 1)
+=================================================================
+  Diâmetro/Raio/AvgPath: amostragem k=500 nós
+  Demais métricas      : exatas
+
+[1/6] Carregando grafo na GPU...
+  Auto-loops removidos: 0
+  3,997,962 nós | 34,681,189 arestas  [1.2s]
+
+[2/6] Métricas básicas (exatas)...
+  Vértices : 3,997,962
+  Arestas  : 34,681,189
+  Densidade: 0.00000434
+  Grau mín : 2
+  Grau máx : 29630
+  Grau méd : 34.6989
+  Grau med : 12.0  [0.14s]
+
+[3/6] Componentes conexas (exatas)...
+  Nº componentes : 1
+  Tamanhos top-5 : [3997962]  [0.13s]
+  LCC: 3,997,962 nós
+
+[4/6] Diâmetro, Raio e Comprimento Médio (amostragem k=500)...
+  Justificativa: BFS exato exigiria 3,997,962 × O(V+E) ≈ 17 dias de CPU.
+  Amostragem com k=500 nós aleatórios — IC 95% reportado na tabela.
+    50/500 | 0.2 min | ETA: 1 min   100/500 | 0.3 min | ETA: 1 min   150/500 | 0.5 min | ETA: 1 min   200/500 | 0.6 min | ETA: 1 min   250/500 | 0.7 min | ETA: 1 min   300/500 | 0.9 min | ETA: 1 min   350/500 | 1.0 min | ETA: 0 min   400/500 | 1.2 min | ETA: 0 min   450/500 | 1.3 min | ETA: 0 min
+  Diâmetro estimado: 16  (SNAP: 17)
+  Raio estimado    : 12
+  Comprimento médio: 5.5592  ± 0.6265
+  IC 95% (Normal)  : [5.5043, 5.6141]
+  Tempo BFS        : 1.5 min
+
+[5/6] Triângulos e Clusterização (exatos)...
+  Triângulos: 177,820,130  (SNAP: 177,820,130)  [0.9s]
+  Clustering médio: 0.061295  (SNAP: 0.2843)
+
+[6/6] Gerando visualizações...
+  Figura salva: /shared/parte1_grafo_completo.png
+
+======================================================================
+TABELA RESUMO — Grafo Completo LiveJournal
+======================================================================
+Métrica                                Valor                          Tipo
+------------------------------------------------------------------------------
+Número de vértices                     3,997,962                      Exato
+Número de arestas                      34,681,189                     Exato
+Auto-loops removidos                   0                              Exato
+Grau mínimo                            2                              Exato
+Grau máximo                            29630                          Exato
+Grau médio                             34.6989                        Exato
+Grau mediano                           12.0                           Exato
+Densidade                              0.00000434                     Exato
+Nº componentes conexas                 1                              Exato
+Tamanho LCC                            3,997,962                      Exato
+Diâmetro (LCC)                         ~16  (SNAP: 17)                Amostragem k=500
+Raio (LCC)                             ~12                            Amostragem k=500
+Comprimento médio (LCC)                5.5592 ± 0.6265                Amostragem k=500
+IC 95% comp. médio                     [5.5043, 5.6141]               Normal (n≥30)
+Coef. clusterização médio              0.061295                       Exato (GPU)
+Número de triângulos                   177,820,130                    Exato (GPU)
+Tempo BFS (amostragem)                 1.5 min                        —
+Tempo triângulos                       0.9s                           —
+
+FIM — figura em /shared/parte1_grafo_completo.png

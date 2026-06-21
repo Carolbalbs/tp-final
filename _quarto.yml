@@ -7,7 +7,7 @@ book:
   author: Ana Carolina Balbino
   sidebar:
     logo: grafos.gif
-  repo-url: https://github.com/carolbalbs/snap-analysis
+  repo-url: https://github.com/carolbalbs/tp-final
   repo-branch: master
   repo-actions: [issue]
   sharing: [twitter, linkedin]
@@ -19,10 +19,8 @@ book:
         - paper.qmd
     - part: Scripts
       chapters:
-        - parte1.ipynb
-        - parte2.ipynb
-        - parte3.ipynb
-
+       - parte1_all.ipynb
+       - parte1_ungraph.ipynb
 format:
   html:
     theme: cosmo

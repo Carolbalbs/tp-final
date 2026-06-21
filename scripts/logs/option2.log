@@ -1,0 +1,124 @@
+=================================================================
+PARTE II — ALGORITMOS DA DISCIPLINA (GPU)
+=================================================================
+  Repetições (N_RUNS)  : 30
+  Subgrafo pesados     : 1000 nós
+
+[0] Carregando grafos...
+  Grafo completo GPU : 3,997,962 nós | 34,681,189 arestas
+  Grafo completo CPU : 3,997,962 nós
+  Subgrafo CPU       : 2 nós | 1 arestas
+  Carregamento       : 87.3s
+
+─────────────────────────────────────────────────────────────────
+1. BFS — Breadth-First Search
+─────────────────────────────────────────────────────────────────
+  Complexidade teórica: O(V + E)
+  Aplicável           : SIM — grafo completo GPU
+  Média  : 48.3400 ms
+  Desvio : 7.3009 ms
+  IC 95% : [45.7275, 50.9525] ms  (Normal (Z), n=30)
+
+─────────────────────────────────────────────────────────────────
+2. DFS — Depth-First Search
+─────────────────────────────────────────────────────────────────
+  Complexidade teórica: O(V + E)
+  Aplicável           : SIM — grafo completo CPU
+  Nota: cuGraph não implementa DFS — usando NetworkX
+  Média  : 26679.7599 ms
+  Desvio : 5097.1476 ms
+  IC 95% : [24855.8026, 28503.7172] ms  (Normal (Z), n=30)
+
+─────────────────────────────────────────────────────────────────
+3. Verificação de Eulerianidade
+─────────────────────────────────────────────────────────────────
+  Complexidade teórica: O(V + E)
+  Aplicável           : SIM
+  Circuito Euleriano : False
+  Caminho Euleriano  : False
+  Vértices grau ímpar: 2,262,100
+  → Não é Euleriano (esperado em redes sociais)
+  Média  : 1533.4378 ms
+  Desvio : 19.0528 ms
+  IC 95% : [1526.6200, 1540.2556] ms  (Normal (Z), n=30)
+
+─────────────────────────────────────────────────────────────────
+4. Dijkstra
+─────────────────────────────────────────────────────────────────
+  Complexidade teórica: O((V + E) log V)
+  Aplicável           : SIM — sem pesos negativos
+  Nota: grafo não ponderado → todos os pesos = 1.0 (cugraph.sssp exige grafo ponderado)
+  Média  : 111.4505 ms
+  Desvio : 5.5996 ms
+  IC 95% : [109.4467, 113.4542] ms  (Normal (Z), n=30)
+
+─────────────────────────────────────────────────────────────────
+5. Bellman-Ford
+─────────────────────────────────────────────────────────────────
+  Complexidade teórica: O(V · E)
+  Aplicável           : LIMITADO — O(V·E) inviável no grafo completo
+  → Executado em subgrafo de 2 nós
+  Média  : 4.9860 ms
+  Desvio : 6.8715 ms
+  IC 95% : [-56.7524, 66.7243] ms  (t-Student, n=2)
+
+─────────────────────────────────────────────────────────────────
+6. Floyd-Warshall
+─────────────────────────────────────────────────────────────────
+  Complexidade teórica: O(V³)
+  Aplicável           : LIMITADO — O(V³) inviável no grafo completo
+  → Executado em subgrafo de 2 nós
+  Média  : 0.0686 ms
+  Desvio : 0.2105 ms
+  IC 95% : [-0.0067, 0.1439] ms  (Normal (Z), n=30)
+
+─────────────────────────────────────────────────────────────────
+7. Algoritmo de Tarjan (SCCs)
+─────────────────────────────────────────────────────────────────
+  Complexidade teórica: O(V + E)
+  Aplicável           : ADAPTADO — LiveJournal é não-dirigido
+  → Executado em versão dirigida do subgrafo
+  SCCs encontradas: 1
+  Maior SCC       : 2 nós
+  Média  : 0.0110 ms
+  Desvio : 0.0221 ms
+  IC 95% : [0.0031, 0.0189] ms  (Normal (Z), n=30)
+
+─────────────────────────────────────────────────────────────────
+8. Prim — Árvore Geradora Mínima
+─────────────────────────────────────────────────────────────────
+  Complexidade teórica: O(E log V)
+  Aplicável           : SIM — grafo completo GPU
+  Nota: sem pesos → todos pesos = 1 (qualquer spanning tree) — reaproveita G_w
+  Média  : 438.9762 ms
+  Desvio : 36.3784 ms
+  IC 95% : [425.9585, 451.9938] ms  (Normal (Z), n=30)
+
+─────────────────────────────────────────────────────────────────
+9. Kruskal — Árvore Geradora Mínima
+─────────────────────────────────────────────────────────────────
+  Complexidade teórica: O(E log E)
+  Aplicável           : SIM — grafo completo CPU
+  Média  : 141403.3857 ms
+  Desvio : 14702.4345 ms
+  IC 95% : [136142.2838, 146664.4877] ms  (Normal (Z), n=30)
+
+Gerando visualização...
+  Figura salva: /shared/parte2_algoritmos.png
+
+==========================================================================================
+TABELA RESUMO — Parte II
+==========================================================================================
+Algoritmo        Aplicável  Complexidade       Escopo                          Média(ms) IC 95%(ms)                     Dist.
+------------------------------------------------------------------------------------------------------------------------
+BFS              SIM        O(V + E)           Grafo completo (GPU)               48.340 [45.727, 50.953]               Normal (Z)
+DFS              SIM        O(V + E)           Grafo completo (CPU)            26679.760 [24855.803, 28503.717]         Normal (Z)
+Eulerianidade    SIM        O(V + E)           Grafo completo (CPU)             1533.438 [1526.620, 1540.256]           Normal (Z)
+Dijkstra         SIM        O((V+E) log V)     Grafo completo (GPU)              111.450 [109.447, 113.454]             Normal (Z)
+Bellman-Ford     LIMITADO   O(V · E)           Subgrafo 2 nós (CPU)                4.986 [-56.752, 66.724]              t-Student
+Floyd-Warshall   LIMITADO   O(V³)              Subgrafo 2 nós (CPU)                0.069 [-0.007, 0.144]                Normal (Z)
+Tarjan           ADAPTADO   O(V + E)           Subgrafo 2 nós (DiGraph CPU)        0.011 [0.003, 0.019]                 Normal (Z)
+Prim             SIM        O(E log V)         Grafo completo (GPU)              438.976 [425.959, 451.994]             Normal (Z)
+Kruskal          SIM        O(E log E)         Grafo completo (CPU)           141403.386 [136142.284, 146664.488]       Normal (Z)
+
+FIM — figura em /shared/parte2_algoritmos.png

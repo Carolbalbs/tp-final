@@ -1,0 +1,62 @@
+=================================================================
+PARTE II — CORREÇÃO: Bellman-Ford, Floyd-Warshall, Tarjan
+=================================================================
+
+  Checkpoint carregado — algoritmos já prontos: BFS, DFS, Eulerianidade, Dijkstra, Bellman-Ford, Floyd-Warshall, Tarjan, Prim, Kruskal
+
+[0] Carregando grafo CPU...
+  3,997,962 nós  [87.9s]
+
+  Montando subgrafo conectado via BFS (alvo: 1000 nós)...
+  Subgrafo: 1000 nós | 3051 arestas
+  Conectado: True
+
+─────────────────────────────────────────────────────────────────
+5. Bellman-Ford (CORRIGIDO)
+─────────────────────────────────────────────────────────────────
+  Complexidade teórica: O(V · E)
+  Subgrafo: 1000 nós | 3051 arestas
+  Média  : 4.4041 ms
+  Desvio : 13.4039 ms
+  IC 95% : [-0.3923, 9.2006] ms  (Normal (Z), n=30)
+
+─────────────────────────────────────────────────────────────────
+6. Floyd-Warshall (CORRIGIDO)
+─────────────────────────────────────────────────────────────────
+  Complexidade teórica: O(V³)
+  Subgrafo: 1000 nós | 3051 arestas
+  Média  : 74191.2447 ms
+  Desvio : 2241.4604 ms
+  IC 95% : [73389.1632, 74993.3263] ms  (Normal (Z), n=30)
+
+─────────────────────────────────────────────────────────────────
+7. Tarjan (CORRIGIDO)
+─────────────────────────────────────────────────────────────────
+  Complexidade teórica: O(V + E)
+  Subgrafo DiGraph: 1000 nós
+  SCCs encontradas: 1
+  Maior SCC       : 1000 nós
+  Média  : 2.6969 ms
+  Desvio : 0.0936 ms
+  IC 95% : [2.6634, 2.7304] ms  (Normal (Z), n=30)
+
+  Checkpoint atualizado.
+
+==========================================================================================
+TABELA RESUMO — Parte II (COMPLETA)
+==========================================================================================
+Algoritmo        Aplicável  Complexidade       Escopo                               Média(ms) IC 95%(ms)                       Dist.
+-----------------------------------------------------------------------------------------------------------------------------
+BFS              SIM        O(V + E)           Grafo completo (GPU)                    48.340 [45.727, 50.953]                 Normal (Z)
+DFS              SIM        O(V + E)           Grafo completo (CPU)                 26679.760 [24855.803, 28503.717]           Normal (Z)
+Eulerianidade    SIM        O(V + E)           Grafo completo (CPU)                  1533.438 [1526.620, 1540.256]             Normal (Z)
+Dijkstra         SIM        O((V+E) log V)     Grafo completo (GPU)                   111.450 [109.447, 113.454]               Normal (Z)
+Bellman-Ford     LIMITADO   O(V · E)           Subgrafo 1000 nós BFS (CPU)              4.404 [-0.392, 9.201]                  Normal (Z)
+Floyd-Warshall   LIMITADO   O(V³)              Subgrafo 1000 nós BFS (CPU)          74191.245 [73389.163, 74993.326]           Normal (Z)
+Tarjan           ADAPTADO   O(V + E)           Subgrafo 1000 nós BFS (DiGraph CPU)      2.697 [2.663, 2.730]                   Normal (Z)
+Prim             SIM        O(E log V)         Grafo completo (GPU)                   438.976 [425.959, 451.994]               Normal (Z)
+Kruskal          SIM        O(E log E)         Grafo completo (CPU)                141403.386 [136142.284, 146664.488]         Normal (Z)
+
+FIM
+Início: 2026-06-20 17:43:06
+Fim   : 2026-06-20 18:21:58
