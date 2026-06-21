@@ -1,12 +1,12 @@
 /.quarto/
 **/*.quarto_ipynb
 /data/com-lj.ungraph.txt
-/224115861_clean.md
-/224115861_organized.pdf
-/paper.pdf
-/title.tex
-/page.md
-/fix readme
-/webmedia.cls
-/before-body.tex
-/doc-class.tex
+./224115861_clean.md
+./224115861_organized.pdf
+./paper.pdf
+./title.tex
+./page.md
+./fix readme
+./webmedia.cls
+./before-body.tex
+./doc-class.tex
