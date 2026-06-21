@@ -1,0 +1,88 @@
+=================================================================
+PARTE III — Q3: ROBUSTEZ (Apêndice C) — isolamento por processo
+  Início: 2026-06-21 18:05:33
+=================================================================
+
+  [Baseline]
+  A=1.0000  B=1  C=5.6753  D=0.000000  [12.9s]
+
+  [a] Remoção ALEATÓRIA 30 repetições...
+  Rep  1/30: A=0.9386 B=2,686 C=5.566 D=0.00000  [13.0s]
+  Rep  2/30: A=0.9385 B=2,658 C=5.569 D=0.00000  [12.0s]
+  Rep  3/30: A=0.9387 B=2,570 C=5.722 D=0.00000  [12.9s]
+  Rep  4/30: A=0.9383 B=2,746 C=5.548 D=0.00000  [12.3s]
+  Rep  5/30: A=0.9383 B=2,726 C=5.707 D=0.00000  [12.5s]
+  Rep  6/30: A=0.9386 B=2,613 C=5.487 D=0.00000  [11.9s]
+  Rep  7/30: A=0.9384 B=2,755 C=5.508 D=0.00000  [12.6s]
+  Rep  8/30: A=0.9385 B=2,677 C=5.569 D=0.00000  [11.7s]
+  Rep  9/30: A=0.9383 B=2,751 C=5.643 D=0.00000  [12.0s]
+  Rep 10/30: A=0.9381 B=2,742 C=5.713 D=0.00000  [12.5s]
+  Rep 11/30: A=0.9384 B=2,793 C=5.682 D=0.00000  [12.7s]
+  Rep 12/30: A=0.9384 B=2,762 C=5.566 D=0.00000  [11.9s]
+  Rep 13/30: A=0.9384 B=2,821 C=5.513 D=0.00000  [12.6s]
+  Rep 14/30: A=0.9385 B=2,707 C=5.639 D=0.00000  [12.8s]
+  Rep 15/30: A=0.9385 B=2,709 C=5.647 D=0.00000  [12.9s]
+  Rep 16/30: A=0.9384 B=2,665 C=5.491 D=0.00000  [11.8s]
+  Rep 17/30: A=0.9386 B=2,702 C=5.660 D=0.00000  [11.8s]
+  Rep 18/30: A=0.9385 B=2,721 C=5.621 D=0.00000  [12.9s]
+  Rep 19/30: A=0.9384 B=2,651 C=5.592 D=0.00000  [12.9s]
+  Rep 20/30: A=0.9386 B=2,749 C=5.559 D=0.00000  [12.7s]
+  Rep 21/30: A=0.9385 B=2,594 C=5.618 D=0.00000  [13.0s]
+  Rep 22/30: A=0.9383 B=2,693 C=5.665 D=0.00000  [12.7s]
+  Rep 23/30: A=0.9381 B=2,839 C=5.664 D=0.00000  [11.9s]
+  Rep 24/30: A=0.9386 B=2,718 C=5.618 D=0.00000  [12.2s]
+  Rep 25/30: A=0.9385 B=2,728 C=5.736 D=0.00000  [12.8s]
+  Rep 26/30: A=0.9386 B=2,614 C=5.517 D=0.00000  [12.8s]
+  Rep 27/30: A=0.9385 B=2,659 C=5.638 D=0.00000  [12.6s]
+  Rep 28/30: A=0.9384 B=2,758 C=5.506 D=0.00000  [11.8s]
+  Rep 29/30: A=0.9383 B=2,646 C=5.593 D=0.00000  [12.2s]
+  Rep 30/30: A=0.9385 B=2,714 C=5.616 D=0.00000  [12.7s]
+
+  Resultados (média ± dp):
+  A: 0.9385 ± 0.0001
+  B: 2705.6 ± 62.5
+  C: 5.6057 ± 0.0704
+  D: 0.000000 ± 0.000000
+
+  [b] Remoção DIRECIONADA (top 5% por grau)...
+  A=0.8912 (Δ=-0.1088)  B=11,174 (Δ=+11,173)  C=7.3709 (Δ=+1.6956)  D=0.000000  [11.1s]
+
+  INTERPRETAÇÃO (Apêndice C):
+  S_rand=0.938  vs  S_cent=0.891
+  c_cent=11,174  vs  c_rand=2706
+
+  S_rand >> S_cent e c_cent >> c_rand:
+  → rede MUITO VULNERÁVEL a ataques direcionados.
+  → padrão típico de redes com lei de potência (scale-free).
+  → robusta a falhas aleatórias, frágil a ataques nos hubs.
+
+
+Gerando visualizações Q3...
+  Figura salva: /shared/parte3_q3_robustez.png
+
+======================================================================
+TABELA RESUMO — Q3 Robustez
+======================================================================
+Métrica                                Valor                               Tipo
+------------------------------------------------------------------------------
+
+── Baseline ──
+  A — LCC fração                       1.0000                              Exato GPU
+  B — Nº componentes                   1                                   Exato GPU
+  C — AvgPath                          5.6753                              Amostragem
+  D — Fração isolados                  0.000000                            Exato GPU
+
+── Remoção ALEATÓRIA (T=30) ──
+  A — LCC (média ± dp)                 0.9385 ± 0.0001                     30 reps
+  B — Componentes (média ± dp)         2705.6 ± 62.5                       30 reps
+  C — AvgPath (média ± dp)             5.6057 ± 0.0704                     30 reps
+  D — Isolados (média ± dp)            0.00000 ± 0.00000                   30 reps
+
+── Remoção HUBS (degree) ──
+  A — LCC                              0.8912  (Δ=-0.1088)                 Exato GPU
+  B — Componentes                      11,174  (Δ=+11,173)                 Exato GPU
+  C — AvgPath                          7.3709  (Δ=+1.6956)                 Amostragem
+  D — Isolados                         0.000000                            Exato GPU
+
+  Fim: 2026-06-21 18:12:12
+  Figura: /shared/parte3_q3_robustez.png
