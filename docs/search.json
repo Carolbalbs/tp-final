@@ -44,7 +44,7 @@
     "href": "paper.html",
     "title": "1  Análise Estrutural e Algorítmica da Rede Social LiveJournal",
     "section": "",
-    "text": "1.1 Começando",
+    "text": "2 Cálculo de Determinação do Grafo a ser Utilizado\nDe acordo com a regra de mapeamento determinada nas orientações do trabalho, dado o número de matrícula \\(M\\), o ID do grafo a ser selecionado é dado por: \\[\nf(M) = ((\\text{soma dos dígitos de } M) \\times (\\text{últimos 2 dígitos de } M + 1)) \\bmod 129\n\\]\nPara a matrícula 224115861: - Soma dos dígitos = \\(2 + 2 + 4 + 1 + 1 + 5 + 8 + 6 + 1 = 30\\) - Últimos dois dígitos = \\(61\\)\nO cálculo resultante é: \\[\nf(M) = (30 \\times (61 + 1)) \\bmod 129 = (30 \\times 62) \\bmod 129 = 1860 \\bmod 129 = 25\n\\]\nConforme o ID obtido na planilha de referência, o conjunto de dados correspondente é o “LiveJournal social network and ground-truth communities”, pertencente à categoria de redes sociais e comunidades ground-truth, caracterizado por ser um grafo não direcionado com comunidades reais.\nO código-fonte completo deste projeto, incluindo scripts de processamento e execução dos experimentos, está disponível no GitHub: - Repositório: https://github.com/Carolbalbs/tp-final",
     "crumbs": [
       "Relatório",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Análise Estrutural e Algorítmica da Rede Social LiveJournal</span>"
