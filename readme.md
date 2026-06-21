@@ -1,6 +1,6 @@
 # Começando
 
-> Você pode fazer o download da versão formatada em PDF deste artigo aqui: [relatorio.pdf](224115861.pdf)
+> Você pode fazer o download da versão formatada em PDF deste artigo aqui: [relatorio.pdf](https://carolbalbs.github.io/tp-final/224115861.pdf)
 
 ### Instalação Local
 
