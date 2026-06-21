@@ -1,7 +1,6 @@
 # Começando
-::: {.callout-note appearance="simple"}
+
 > Você pode fazer o download da versão formatada em PDF deste artigo aqui: [relatorio.pdf](224115861.pdf)
-:::
 
 ### Instalação Local
 
