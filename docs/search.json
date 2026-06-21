@@ -4,17 +4,27 @@
     "href": "index.html",
     "title": "ANALISANDO SNAP",
     "section": "",
-    "text": "Introdução\nEste trabalho consiste na análise estrutural e algorítmica de um grafo atribuído, com o objetivo de extrair propriedades fundamentais, executar algoritmos clássicos e investigar fenômenos como small‑world, lei de potência e robustez. O relatório final deve documentar todas as medidas computadas, justificar eventuais ausências e incluir uma tabela resumo. O dataset utilizado nesse experimento foi disponibilizado pelo SNAP - Stanford Network Analysis Project",
+    "text": "Introdução\nEste trabalho consiste na análise estrutural e algorítmica de um grafo atribuído, com o objetivo de extrair propriedades fundamentais, executar algoritmos clássicos e investigar fenômenos como small‑world, lei de potência e robustez. O relatório final deve documentar todas as medidas computadas, justificar eventuais ausências e incluir uma tabela resumo. O dataset utilizado nesse experimento foi disponibilizado pelo SNAP - Stanford Network Analysis Project.",
     "crumbs": [
       "Introdução"
     ]
   },
   {
-    "objectID": "index.html#começando",
-    "href": "index.html#começando",
+    "objectID": "index.html#o-projeto",
+    "href": "index.html#o-projeto",
     "title": "ANALISANDO SNAP",
-    "section": "Começando",
-    "text": "Começando\nO currículo de visualização pode ser usado online ou em seu computador local. Você pode visualizar e interagir com os gráficos diretamente neste Jupyter Book. Se desejar modificar o código, você tem algumas opções diferentes:\n\nPara ler notebooks JavaScript online usando Observable, navegue até a página “Observable” acima e clique no notebook correspondente.\nPara ler notebooks Python online usando Colab, clique na seção correspondente neste livro, passe o mouse sobre o pequeno foguete no topo da página e selecione “Colab” no menu.\nPara ler notebooks Python localmente, siga as instruções abaixo.\n\n\nInstalação Local\n\nInstale Altair e um ambiente de notebook. As versões mais recentes destes notebooks usam Altair versão 4.\nBaixe os notebooks na página de releases. Normalmente, você desejará usar a versão mais recente. (Se você deseja usar notebooks para Altair versão 3, baixe o Altair v3.2 release.)\nAbra os notebooks em seu ambiente de notebook local. Por exemplo, se você tiver JupyterLab instalado (v1.0 ou superior é necessário), execute jupyter lab no diretório contendo os notebooks.\n\nDependendo do seu ambiente de programação (e se você tem ou não uma conexão com a internet em tempo real), você pode desejar especificar um renderer particular para Altair. podman exec -d projeto_odonto bash -c “/opt/grafos-env/bin/python /shared/driver.py &gt; /shared/driver.log 2&gt;&1” 005c044347bc0c628e2c07c99632a02879b4afde06b015ce1b67ee6335c4b70f ana@bambu-server3:~$ podman exec -it projeto_odonto tail -f /shared/driver.log",
+    "section": "O Projeto",
+    "text": "O Projeto\nO grafo atribuído (ID 25) para a matrícula 224115861 corresponde ao conjunto de dados LiveJournal social network and ground-truth communities, caracterizado por ser um grafo não direcionado contendo 3.997.962 nós e 34.681.189 arestas.\nDevido à escala multimilionária do grafo, as análises foram executadas no ambiente do BAMBU Lab (UFBA) utilizando GPUs NVIDIA RTX A4000 com a suíte NVIDIA RAPIDS (cuGraph / cuDF), alcançando speedups de até 553× em relação a execuções sequenciais em CPU.",
+    "crumbs": [
+      "Introdução"
+    ]
+  },
+  {
+    "objectID": "index.html#executando-localmente",
+    "href": "index.html#executando-localmente",
+    "title": "ANALISANDO SNAP",
+    "section": "Executando Localmente",
+    "text": "Executando Localmente\nSe você deseja rodar os notebooks (parte1_all.ipynb e parte1_ungraph.ipynb) ou scripts localmente:\n\nClonar o repositório:\ngit clone https://github.com/Carolbalbs/tp-final.git\ncd tp-final\nInstalar dependências de CPU:\npip install -r requirements.txt\nNota: O código rodará em modo de compatibilidade com NetworkX se nenhuma GPU NVIDIA estiver disponível.\nInstalar dependências de GPU (Opcional): Para habilitar aceleração por hardware, instale a suíte NVIDIA RAPIDS em seu ambiente Linux configurado com CUDA.\nExecutar o Jupyter Notebook:\njupyter notebook",
     "crumbs": [
       "Introdução"
     ]
@@ -24,7 +34,7 @@
     "href": "index.html#créditos",
     "title": "ANALISANDO SNAP",
     "section": "Créditos",
-    "text": "Créditos\nDesenvolvido na Universidade Federal da Bahia por Ana Carolina Balbino. Agradeço ao SNAP - Stanford Network Analysis Project pela disponibilização do dataset! Agradeço também aos colegas de MATA53 - Teoria dos Grafos (2026.1) e ao professor Dr. Bruno P. S. responsável pela componente, que nos incentivou a explorar na prática todo o conteúdo visto durante o curso.",
+    "text": "Créditos\nDesenvolvido na Universidade Federal da Bahia por Ana Carolina Balbino. Agradecemos ao BAMBU Lab (UFBA) pelo suporte computacional e ao SNAP pela disponibilização do dataset. Agradecemos também ao professor Dr. Bruno P. S. e aos colegas da disciplina MATA53 - Teoria dos Grafos (2026.1) pelo incentivo e discussões.",
     "crumbs": [
       "Introdução"
     ]
@@ -36,7 +46,18 @@
     "section": "",
     "text": "1.1 Começando",
     "crumbs": [
-      "Artigo",
+      "Relatório",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Análise Estrutural e Algorítmica da Rede Social LiveJournal</span>"
+    ]
+  },
+  {
+    "objectID": "paper.html#começando",
+    "href": "paper.html#começando",
+    "title": "1  Análise Estrutural e Algorítmica da Rede Social LiveJournal",
+    "section": "",
+    "text": "Você pode fazer o download da versão formatada em PDF deste artigo aqui: relatorio.pdf",
+    "crumbs": [
+      "Relatório",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Análise Estrutural e Algorítmica da Rede Social LiveJournal</span>"
     ]
   },
@@ -47,7 +68,7 @@
     "section": "4.1 Dataset e Formato de Entrada",
     "text": "4.1 Dataset e Formato de Entrada\nO arquivo do grafo (com-lj.ungraph.txt) foi lido no formato de lista de adjacências contendo dois inteiros por linha separados por tabulação.",
     "crumbs": [
-      "Artigo",
+      "Relatório",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Análise Estrutural e Algorítmica da Rede Social LiveJournal</span>"
     ]
   },
@@ -58,7 +79,7 @@
     "section": "4.2 Ambiente Computacional",
     "text": "4.2 Ambiente Computacional\nOs experimentos foram conduzidos em um servidor pertencente à infraestrutura do projeto BAMBU Lab (Rede Metropolitana para Experimentação e Inovação da Internet do Futuro), sediado na Universidade Federal da Bahia (UFBA).\nO hardware utilizado consistiu em: - Placa de Vídeo (GPU): 2x NVIDIA RTX A4000 (16 GB de VRAM cada), utilizando exclusivamente a GPU de índice 1 (via variável de ambiente CUDA_VISIBLE_DEVICES=1). - Sistema Operacional: Linux (Ubuntu 22.04) - Tecnologias Core: CUDA 12.6, Drivers NVIDIA 560.35.03, Python 3.10 em container virtual gerenciado via Podman.\nAs principais bibliotecas de software empregadas foram: - cuDF e cuGraph (versão 24.xx): para manipulação paralela de dados e execução de algoritmos acelerados em GPU. - NetworkX (versão 3.4): utilizada como fallback na CPU para algoritmos sem suporte de hardware. - NumPy, SciPy e Matplotlib: para processamento estatístico, cálculos de intervalo de confiança e plotagem.\nPara evitar vazamentos de memória na GPU e na CPU entre execuções repetidas, chamadas explícitas de coleta de lixo (gc.collect()) foram inseridas nos scripts após cada medição.",
     "crumbs": [
-      "Artigo",
+      "Relatório",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Análise Estrutural e Algorítmica da Rede Social LiveJournal</span>"
     ]
   },
@@ -69,7 +90,7 @@
     "section": "4.3 Procedimento de Análise Estrutural",
     "text": "4.3 Procedimento de Análise Estrutural\nAs propriedades estruturais básicas do grafo completo foram calculadas diretamente sobre a GPU. Para as métricas que dependem de caminhos mínimos globais (como diâmetro, raio e distância média), as quais possuem custo computacional proibitivo de \\(O(V \\cdot E)\\) na GPU, aplicou-se uma metodologia de amostragem aleatória com \\(k = 500\\) nós de origem.\nPara cada nó da amostra, executou-se uma busca em largura (BFS) e armazenou-se a excentricidade e a distribuição de caminhos mais curtos. Os valores estatísticos reportados foram calculados com base nessa amostra, acompanhados de intervalos de confiança de 95%.",
     "crumbs": [
-      "Artigo",
+      "Relatório",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Análise Estrutural e Algorítmica da Rede Social LiveJournal</span>"
     ]
   },
@@ -80,7 +101,7 @@
     "section": "4.4 Avaliação de Algoritmos",
     "text": "4.4 Avaliação de Algoritmos\nImplementou-se a medição de tempo dos seguintes algoritmos: BFS, DFS, verificação de Eulerianidade, Dijkstra, Bellman-Ford, Floyd-Warshall, Tarjan, Prim e Kruskal. - Algoritmos com complexidade linear ou quase linear no número de arestas (\\(O(V+E)\\) ou \\(O(E \\log V)\\)) foram executados sobre o grafo completo (e.g., BFS, DFS, Eulerianidade, Prim, Kruskal). - Devido às elevadas complexidades de Bellman-Ford (\\(O(V \\cdot E)\\)) e Floyd-Warshall (\\(O(V^3)\\)), suas execuções foram realizadas em um subgrafo induzido de 1.000 nós selecionados aleatoriamente, preservando a conectividade. - Algoritmos que exigem pesos (como Dijkstra) ou direcionalidade (como Tarjan) não foram medidos no benchmark de desempenho por limitações estruturais do grafo LiveJournal (não direcionado e não ponderado). - Para cada algoritmo avaliado, realizaram-se 30 execuções independentes (\\(n = 30\\)) variando a origem de forma aleatória, calculando-se média, desvio padrão e Intervalo de Confiança (IC) de 95% através da aproximação normal (Z), visto que \\(n \\geq 30\\).",
     "crumbs": [
-      "Artigo",
+      "Relatório",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Análise Estrutural e Algorítmica da Rede Social LiveJournal</span>"
     ]
   },
@@ -91,7 +112,7 @@
     "section": "5.1 Tratamento dos Dados",
     "text": "5.1 Tratamento dos Dados\nAntes do início dos cálculos, os seguintes passos de limpeza e tratamento foram aplicados: 1. Carregamento do arquivo de arestas via cuDF e inicialização do objeto Graph no cuGraph. 2. Verificação de auto-laços: não foram encontrados auto-laços no dataset original (0 arestas removidas). 3. Componentes conexas: confirmou-se que o grafo original é composto por uma única grande componente conexa (LCC) abrangendo todos os 3.997.962 nós. 4. Conversão de estruturas de dados para compatibilidade com o NetworkX (CPU) nos algoritmos específicos.",
     "crumbs": [
-      "Artigo",
+      "Relatório",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Análise Estrutural e Algorítmica da Rede Social LiveJournal</span>"
     ]
   },
@@ -102,7 +123,7 @@
     "section": "5.2 Análise Estrutural do Grafo Completo",
     "text": "5.2 Análise Estrutural do Grafo Completo\nAs métricas estruturais exatas e estimadas por amostragem obtidas neste trabalho estão sumarizadas na Table 5.1.\n\n\n\nTable 5.1: Métricas estruturais computadas para o grafo LiveJournal\n\n\n\n\n\nMétrica\nValor Computado\nMétodo / Detalhe\n\n\n\n\nNúmero de vértices\n3.997.962\nExato (GPU)\n\n\nNúmero de arestas\n34.681.189\nExato (GPU)\n\n\nGrau mínimo\n2\nExato (GPU)\n\n\nGrau máximo\n29.630\nExato (GPU)\n\n\nGrau médio\n34,6989\nExato (GPU)\n\n\nGrau mediano\n12,0\nExato (GPU)\n\n\nDensidade\n\\(4,34 \\times 10^{-6}\\)\nExato (GPU)\n\n\nNº componentes conexas\n1\nExato (GPU)\n\n\nTamanho da LCC\n3.997.962\nExato (GPU)\n\n\nDiâmetro (LCC)\n\\(\\approx 16\\)\nAmostragem (\\(k=500\\) na GPU)\n\n\nRaio (LCC)\n\\(\\approx 12\\)\nAmostragem (\\(k=500\\) na GPU)\n\n\nComprimento médio (LCC)\n\\(5,5592 \\pm 0,6265\\)\nAmostragem (\\(k=500\\))\n\n\nIC 95% comprimento médio\n\\([5,5043; 5,6141]\\)\nNormal (Z, \\(n=500\\))\n\n\nCoef. clusterização médio\n0,061295\nExato (GPU)\n\n\nNúmero de triângulos\n177.820.130\nExato (GPU)\n\n\n\n\n\n\nO diâmetro estimado de 16 obtido pela nossa amostragem está muito próximo ao valor de referência oficial de 17. O comprimento médio dos caminhos (\\(\\approx 5,56\\)) confirma que, em média, quaisquer dois usuários estão separados por menos de 6 conexões de amizade.\n\n\n\n\n\n\nFigure 5.1: Distribuição de graus em escala log-log (esquerda) e distribuição empírica das excentricidades amostradas (direita).\n\n\n\nA Figure 5.1 apresenta as distribuições visuais de graus e caminhos mais curtos: - Painel esquerdo: A distribuição de graus plotada em escala log-log revela um decaimento linear marcante, indicando uma distribuição de graus que segue uma lei de potência (propriedade scale-free). A maioria dos usuários possui grau baixo (mediana de 12), enquanto um número pequeno de hubs acumula dezenas de milhares de conexões de amizade (grau máximo de 29.630). - Painel direito: A distribuição de excentricidades calculada para a amostra de 500 nós concentra-se no intervalo de 13 a 15, com pouca variação, confirmando que a maioria dos vértices está a distâncias bastante similares do centro de gravidade da rede.",
     "crumbs": [
-      "Artigo",
+      "Relatório",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Análise Estrutural e Algorítmica da Rede Social LiveJournal</span>"
     ]
   },
@@ -113,7 +134,7 @@
     "section": "5.3 Desempenho dos Algoritmos",
     "text": "5.3 Desempenho dos Algoritmos\nA Table 5.2 apresenta os resultados empíricos das medições de tempo de execução no benchmark de algoritmos.\n\n\n\nTable 5.2: Resultados de tempo de execução e intervalos de confiança (30 repetições)\n\n\n\n\n\n\n\n\n\n\n\n\nAlgoritmo\nComplexidade\nMédia (ms)\nIC 95% (ms)\nEscopo / Dispositivo\n\n\n\n\nBFS\n\\(O(V+E)\\)\n48,34\n\\([45,73; 50,95]\\)\nGrafo completo (GPU)\n\n\nDFS\n\\(O(V+E)\\)\n26.679,76\n\\([24.855,80; 28.503,72]\\)\nGrafo completo (CPU)\n\n\nEulerianidade\n\\(O(V+E)\\)\n1.533,44\n\\([1.526,62; 1.540,26]\\)\nGrafo completo (CPU)\n\n\nBellman-Ford\n\\(O(V \\cdot E)\\)\n4,40\n\\([-0,39; 9,20]\\)\nSubgrafo 1.000 nós (CPU)\n\n\nFloyd-Warshall\n\\(O(V^3)\\)\n74.191,24\n\\([73.389,16; 74.993,33]\\)\nSubgrafo 1.000 nós (CPU)\n\n\nPrim\n\\(O(E \\log V)\\)\n438,98\n\\([425,96; 451,99]\\)\nGrafo completo (GPU)\n\n\nKruskal\n\\(O(E \\log E)\\)\n141.403,39\n\\([136.142,28; 146.664,49]\\)\nGrafo completo (CPU)\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 5.2: Comparação dos tempos médios de execução com intervalos de confiança de 95% em escala logarítmica.\n\n\n\nA Figure 5.2 ilustra a enorme disparidade de desempenho entre os ambientes GPU e CPU. - Aceleração na GPU: Os algoritmos paralelizados em GPU apresentaram tempos de execução extremamente reduzidos. No grafo completo, a BFS rodou em média em 48 ms e o Prim em 439 ms. Em contrapartida, a DFS na CPU exigiu 26,68 segundos para varrer o mesmo grafo, o que representa um speedup de ~553× a favor da BFS na GPU, mesmo com a mesma complexidade teórica assintótica (\\(O(V+E)\\)). - Sobrecarga de Algoritmos Inviáveis: O algoritmo de Kruskal (CPU) rodou no grafo completo com tempo médio de 141,4 segundos devido ao custo de ordenar e unir 34 milhões de arestas em CPU de forma puramente sequencial. Bellman-Ford e Floyd-Warshall foram restritos ao subgrafo de 1.000 nós para evitar travamentos, e o Floyd-Warshall (cúbico) ainda assim demorou em média 74,19 segundos para resolver a amostragem pequena.",
     "crumbs": [
-      "Artigo",
+      "Relatório",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Análise Estrutural e Algorítmica da Rede Social LiveJournal</span>"
     ]
   },
@@ -124,7 +145,7 @@
     "section": "5.4 Propriedade Small-World",
     "text": "5.4 Propriedade Small-World\nA propriedade small-world foi avaliada de acordo com a formulação clássica de Watts-Strogatz. Comparamos o coeficiente de agrupamento médio (\\(C\\)) e a distância média (\\(L\\)) com os de um grafo aleatório equivalente (modelo Erdős-Rényi com igual número de nós e arestas, onde a probabilidade de conexão é \\(p \\approx 2E / (V(V-1)) \\approx 4,34 \\times 10^{-6}\\)).\nAs métricas calculadas e os critérios formais para a classificação são detalhados na Table 5.3.\n\n\n\nTable 5.3: Métricas comparativas para avaliação de rede small-world\n\n\n\n\n\n\n\n\n\n\n\nCritério\nValor Observado\nCondição Esperada\nConclusão\n\n\n\n\n\\(C_{\\text{real}} / C_{\\text{random}}\\)\n\\(\\approx 7061,64\\)\n\\(\\gg 1\\)\nSatisfeito\n\n\n\\(L_{\\text{real}} / L_{\\text{random}}\\)\n\\(\\approx 1,297\\)\n\\(\\approx 1\\)\nSatisfeito\n\n\nÍndice \\(\\sigma\\) (sigma)\n\\(\\approx 5444,60\\)\n\\(&gt; 1\\)\nSmall-world forte\n\n\n\n\n\n\nA razão entre os coeficientes de agrupamento indica que a probabilidade de dois vizinhos de um mesmo usuário serem amigos entre si na rede real é mais de 7.000 vezes maior que no modelo aleatório. Somando isso ao fato de que as distâncias médias na rede são apenas 30% maiores que no limite aleatório teórico (\\(5,56\\) contra \\(4,29\\)), confirma-se a presença de uma rede small-world. A topologia combina aglomeração local com atalhos globais, gerando um índice \\(\\sigma\\) extremamente elevado.",
     "crumbs": [
-      "Artigo",
+      "Relatório",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Análise Estrutural e Algorítmica da Rede Social LiveJournal</span>"
     ]
   },
@@ -135,7 +156,7 @@
     "section": "5.5 Análise de Lei de Potência (Power Law)",
     "text": "5.5 Análise de Lei de Potência (Power Law)\nA distribuição empírica dos graus foi submetida a um ajuste estatístico por meio de regressão OLS (mínimos quadrados ordinários) em escala log-log, buscando avaliar a hipótese de decaimento em escala livre (\\(P(k) \\sim k^{-\\gamma}\\)).\n\n\n\n\n\n\nFigure 5.3: Ajuste de regressão OLS em escala log-log da distribuição empírica de graus.\n\n\n\nA Figure 5.3 apresenta o resultado do ajuste linear: - O coeficiente angular da reta ajustada estimou o expoente de decaimento em \\(\\gamma \\approx 2,44\\). - O coeficiente de determinação obtido foi de \\(R^2 = 0,924\\), indicando que a distribuição empírica dos graus é fortemente modelada por uma lei de potência em quase toda a sua extensão (do grau mínimo 2 ao grau máximo de hubs 29.630). - Esse valor de expoente (\\(2 &lt; \\gamma &lt; 3\\)) é o comportamento padrão observado na literatura científica para grandes redes de amizade online, implicando em uma rede altamente heterogênea onde a média dos graus (\\(\\approx 34,7\\)) perde o caráter representativo diante de uma mediana baixa (12) e cauda longa com hubs gigantescos.",
     "crumbs": [
-      "Artigo",
+      "Relatório",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Análise Estrutural e Algorítmica da Rede Social LiveJournal</span>"
     ]
   },
@@ -146,7 +167,7 @@
     "section": "5.6 Robustez da Rede",
     "text": "5.6 Robustez da Rede\nA robustez estrutural do LiveJournal foi testada sob dois cenários distintos de degradação: 1. Falha Aleatória: Remoção de 5% dos nós escolhidos de forma uniforme ao acaso (com \\(T=30\\) repetições independentes). 2. Ataque Direcionado: Remoção dos 5% de nós mais centrais, ordenados de forma decrescente pela centralidade de grau (degree centrality).\nOs resultados médios obtidos após a remoção sistemática dos nós são exibidos na Table 5.4.\n\n\n\nTable 5.4: Resumo de métricas obtidas na análise de robustez e degradação\n\n\n\n\n\n\n\n\n\n\n\nMétrica\nRede Original\nRemoção Aleatória (5%, T=30)\nAtaque a Hubs (5%, degree)\n\n\n\n\nFração do tamanho da LCC\n1,0000\n\\(0,9385 \\pm 0,0001\\)\n0,8912 (\\(\\Delta = -0,1088\\))\n\n\nNº de componentes conexas\n1\n\\(2.705,6 \\pm 62,5\\)\n\\(11.174\\) (\\(\\Delta = +11.173\\))\n\n\nDistância média estimada\n5,6753\n\\(5,6057 \\pm 0,0704\\)\n7,3709 (\\(\\Delta = +1,6956\\))\n\n\nFração de nós isolados\n0,000000\n\\(0,000000 \\pm 0,000000\\)\n0,000000\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 5.4: Comportamento comparativo das métricas de robustez sob falhas aleatórias e ataques direcionados.\n\n\n\nA análise comparativa por meio da Figure 5.4 demonstra o comportamento dual clássico de redes scale-free (Albert, Jeong, and Barabási 2000): - Resiliência a Falhas Aleatórias: A rede é extremamente resiliente à quebra fortuita de nós. A remoção aleatória de 5% da população (quase 200 mil usuários) preserva 93,85% do tamanho da maior componente conexa e mantém a distância média global estável em \\(\\approx 5,60\\) saltos. O desvio padrão insignificante confirma a homogeneidade desse resultado independente dos nós sorteados. - Vulnerabilidade a Ataques Direcionados: A rede é severamente degradada sob ataque direcionado aos hubs. Ao remover os 5% de nós com maior grau, a LCC é reduzida para 89,12% (uma queda muito mais abrupta) e a rede se fragmenta massivamente, originando mais de 11.000 componentes isoladas (cerca de 4× a fragmentação do cenário aleatório). Além disso, a distância média entre nós na componente restante aumenta cerca de 30% (de 5,68 para 7,37). A destruição dos hubs remove os principais “atalhos” e pontes estruturais da rede, forçando as comunicações remanescentes a contornar por rotas periféricas.",
     "crumbs": [
-      "Artigo",
+      "Relatório",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Análise Estrutural e Algorítmica da Rede Social LiveJournal</span>"
     ]
   },
@@ -157,7 +178,7 @@
     "section": "6.1 Decisões de Projeto e Viabilidade",
     "text": "6.1 Decisões de Projeto e Viabilidade\nA decisão metodológica mais crucial do projeto foi a substituição do cálculo exato de caminhos mínimos globais (cujo diâmetro exato requer rodar BFS para todos os 4 milhões de nós) por uma amostragem representativa de \\(k=500\\) nós. O cálculo exato exigiria cerca de \\(1,55 \\times 10^{14}\\) operações e aproximadamente 43 horas de computação contínua de GPU, inviabilizando a execução no prazo do trabalho. A validação cruzada do diâmetro estimado de 16 frente ao real de 17 reportado pelo SNAP corroborou a eficiência estatística da amostragem com margem de erro pequena.\nA aceleração em GPU com cuGraph revelou-se indispensável. Operações elementares que rodam na ordem de milissegundos em GPU levam dezenas de segundos na CPU para o mesmo grafo (como a BFS rodando a 48 ms na GPU contra a DFS a 26,68 s na CPU). Contudo, evidenciou-se que nem todos os algoritmos ganham aceleração trivial por meio do paralelismo. Algoritmos intrinsicamente sequenciais ou que exigem sincronismo estrito de pilhas (como a DFS) não são bem representados na arquitetura Massivamente Paralela de CUDA, justificando a decisão de implementá-los na CPU mesmo diante de tempos mais elevados.",
     "crumbs": [
-      "Artigo",
+      "Relatório",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Análise Estrutural e Algorítmica da Rede Social LiveJournal</span>"
     ]
   },
@@ -168,7 +189,7 @@
     "section": "6.2 Limitações Metodológicas e Estruturais",
     "text": "6.2 Limitações Metodológicas e Estruturais\nA análise revelou duas categorias de limitações importantes: 1. Limitações Estruturais: Os algoritmos de Dijkstra e Tarjan foram excluídos da medição por premissas incompatíveis. O Dijkstra pressupõe arestas com pesos (o grafo original é não ponderado) e o Tarjan é focado na identificação de componentes fortemente conexas em grafos direcionados (a rede do LiveJournal é modelada de forma não direcionada). 2. Limitações Computacionais: A execução de algoritmos quadráticos e cúbicos (Bellman-Ford e Floyd-Warshall) no grafo completo é computacionalmente proibitiva até em ambientes com aceleração por hardware. A amostragem de subgrafo com 1.000 nós permitiu validar os algoritmos, mas impede a extrapolação direta dos tempos médios observados para a escala global do LiveJournal.\nA escolha da centralidade de grau (degree centrality) em detrimento da centralidade de intermediação (betweenness centrality) na análise de robustez baseou-se na complexidade de cálculo. O cálculo exato da centralidade de intermediação requer resolver caminhos mínimos de todos para todos (complexidade \\(O(V \\cdot E)\\)), o que é inviável na rede completa. A centralidade de grau, computável em complexidade constante por vértice (\\(O(1)\\)) após obter o vetor de adjacências, proveu uma aproximação de baixo custo e alta eficiência para o mapeamento dos hubs da rede.",
     "crumbs": [
-      "Artigo",
+      "Relatório",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Análise Estrutural e Algorítmica da Rede Social LiveJournal</span>"
     ]
   },
@@ -179,7 +200,7 @@
     "section": "Agradecimentos",
     "text": "Agradecimentos\nAgradecemos ao laboratório BAMBU Lab (UFBA) pela disponibilização da infraestrutura computacional de alto desempenho com GPUs NVIDIA RTX A4000. Estendemos os agradecimentos ao Stanford Network Analysis Project (SNAP) por organizar e disponibilizar o dataset, e ao professor Dr. Bruno P. S. pelas discussões e incentivo à experimentação prática das métricas ao longo da disciplina MATA53 - Teoria dos Grafos.",
     "crumbs": [
-      "Artigo",
+      "Relatório",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Análise Estrutural e Algorítmica da Rede Social LiveJournal</span>"
     ]
   },
@@ -190,7 +211,7 @@
     "section": "7.1 Repositório e Instruções de Execução",
     "text": "7.1 Repositório e Instruções de Execução\nO código-fonte e scripts de automação deste projeto podem ser consultados no GitHub: - URL: https://github.com/Carolbalbs/tp-final\nO repositório do projeto está estruturado da seguinte forma: - scripts/ — Contém os notebooks Jupyter e scripts Python (parte1.py, parte2.py, parte3_ab.py, parte3_c.py, driver.py) que realizam o processamento de dados e plotagem na GPU. - scripts/logs/ — Armazena as saídas de execução no servidor para fins de repositibilidade. - data/ — Contém arquivos de checkpoints e saídas dos experimentos. - data/images/ — Contém as figuras e visualizações geradas para o relatório final. - README.md — Manual de instruções contendo os requisitos e comandos de execução dos scripts em container Podman.\n# Exemplo de comando para executar as análises no servidor via container\npodman exec -d projeto_odonto bash -c \\\n  \"/opt/grafos-env/bin/python /shared/driver.py &gt; /shared/driver.log 2&gt;&1\"\n\n\n\n\nAlbert, Réka, Hawoong Jeong, and Albert-László Barabási. 2000. “Error and Attack Tolerance of Complex Networks.” Nature 406 (6794): 378–82.\n\n\nYang, Jaewon, and Jure Leskovec. 2012. “Defining and Evaluating Network Communities Based on Ground-Truth.” In Proceedings of the 2012 IEEE 12th International Conference on Data Mining, 745–54. IEEE.",
     "crumbs": [
-      "Artigo",
+      "Relatório",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Análise Estrutural e Algorítmica da Rede Social LiveJournal</span>"
     ]
   },
@@ -390,17 +411,6 @@
     "crumbs": [
       "Scripts",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Análise Estrutura - Grafo Completo</span>"
-    ]
-  },
-  {
-    "objectID": "paper.html#começando",
-    "href": "paper.html#começando",
-    "title": "1  Análise Estrutural e Algorítmica da Rede Social LiveJournal",
-    "section": "",
-    "text": "Você pode fazer o download da versão formatada em PDF deste artigo aqui: relatorio.pdf",
-    "crumbs": [
-      "Artigo",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Análise Estrutural e Algorítmica da Rede Social LiveJournal</span>"
     ]
   }
 ]

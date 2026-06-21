@@ -21,6 +21,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -190,10 +225,8 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#introdução" id="toc-introdução" class="nav-link active" data-scroll-target="#introdução">Introdução</a>
   <ul class="collapse">
-  <li><a href="#começando" id="toc-começando" class="nav-link" data-scroll-target="#começando">Começando</a>
-  <ul class="collapse">
-  <li><a href="#instalação-local" id="toc-instalação-local" class="nav-link" data-scroll-target="#instalação-local">Instalação Local</a></li>
-  </ul></li>
+  <li><a href="#o-projeto" id="toc-o-projeto" class="nav-link" data-scroll-target="#o-projeto">O Projeto</a></li>
+  <li><a href="#executando-localmente" id="toc-executando-localmente" class="nav-link" data-scroll-target="#executando-localmente">Executando Localmente</a></li>
   <li><a href="#créditos" id="toc-créditos" class="nav-link" data-scroll-target="#créditos">Créditos</a></li>
   </ul></li>
   </ul>
@@ -229,38 +262,43 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="introdução" class="level1 unnumbered">
 <h1 class="unnumbered">Introdução</h1>
-<p>Este trabalho consiste na análise estrutural e algorítmica de um grafo atribuído, com o objetivo de extrair propriedades fundamentais, executar algoritmos clássicos e investigar fenômenos como small‑world, lei de potência e robustez. O relatório final deve documentar todas as medidas computadas, justificar eventuais ausências e incluir uma tabela resumo. O dataset utilizado nesse experimento foi disponibilizado pelo <a href="https://snap.stanford.edu/index.html">SNAP - Stanford Network Analysis Project</a></p>
+<p>Este trabalho consiste na análise estrutural e algorítmica de um grafo atribuído, com o objetivo de extrair propriedades fundamentais, executar algoritmos clássicos e investigar fenômenos como small‑world, lei de potência e robustez. O relatório final deve documentar todas as medidas computadas, justificar eventuais ausências e incluir uma tabela resumo. O dataset utilizado nesse experimento foi disponibilizado pelo <a href="https://snap.stanford.edu/index.html">SNAP - Stanford Network Analysis Project</a>.</p>
 <div class="callout callout-style-simple callout-note">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>Este livro foi originalmente criado e publicado no <a href="https://quarto.org">Quarto</a> a fim de fornecer um exemplo de seu uso. Acessem o link : <a href="https://carolbalbs.github.io/tp-final" class="uri">https://carolbalbs.github.io/tp-final</a>. Este site é uma adaptação do código-fonte original para o sistema de publicação do framework.</p>
+<blockquote class="blockquote">
+<p>📄 <strong>Relatório em PDF:</strong> Faça o download do relatório final formatado em PDF aqui: <strong><a href="224115861.pdf">relatorio.pdf</a></strong>.</p>
+<p>💻 <strong>Código-Fonte:</strong> Acesse o repositório completo com scripts e dados em: <strong><a href="https://github.com/Carolbalbs/tp-final" class="uri">https://github.com/Carolbalbs/tp-final</a></strong></p>
+</blockquote>
 </div>
 </div>
 </div>
-<section id="começando" class="level2">
-<h2 class="anchored" data-anchor-id="começando">Começando</h2>
-<p>O currículo de visualização pode ser usado online ou em seu computador local. Você pode visualizar e interagir com os gráficos diretamente neste Jupyter Book. Se desejar modificar o código, você tem algumas opções diferentes:</p>
-<ul>
-<li>Para ler notebooks JavaScript online usando <a href="https://observablehq.com/">Observable</a>, navegue até a página “Observable” acima e clique no notebook correspondente.</li>
-<li>Para ler notebooks Python online usando <a href="https://colab.research.google.com/">Colab</a>, clique na seção correspondente neste livro, passe o mouse sobre o pequeno foguete no topo da página e selecione “Colab” no menu.</li>
-<li>Para ler notebooks Python localmente, siga as instruções abaixo.</li>
-</ul>
-<section id="instalação-local" class="level3">
-<h3 class="anchored" data-anchor-id="instalação-local">Instalação Local</h3>
-<ol type="1">
-<li><a href="https://altair-viz.github.io/getting_started/installation.html">Instale Altair e um ambiente de notebook</a>. As versões mais recentes destes notebooks usam <em>Altair versão 4</em>.</li>
-<li>Baixe os notebooks na <a href="https://github.com/uwdata/visualization-curriculum/releases">página de releases</a>. Normalmente, você desejará usar a versão mais recente. (Se você deseja usar notebooks para Altair versão 3, baixe o <a href="https://github.com/uwdata/visualization-curriculum/releases/tag/altair-v3">Altair v3.2 release</a>.)</li>
-<li>Abra os notebooks em seu ambiente de notebook local. Por exemplo, se você tiver JupyterLab instalado (v1.0 ou superior é necessário), execute <code>jupyter lab</code> no diretório contendo os notebooks.</li>
-</ol>
-<p>Dependendo do seu ambiente de programação (e se você tem ou não uma conexão com a internet em tempo real), você pode desejar especificar um <a href="https://altair-viz.github.io/user_guide/display_frontends.html">renderer</a> particular para Altair. podman exec -d projeto_odonto bash -c “/opt/grafos-env/bin/python /shared/driver.py &gt; /shared/driver.log 2&gt;&amp;1” 005c044347bc0c628e2c07c99632a02879b4afde06b015ce1b67ee6335c4b70f ana@bambu-server3:~$ podman exec -it projeto_odonto tail -f /shared/driver.log</p>
+<section id="o-projeto" class="level2">
+<h2 class="anchored" data-anchor-id="o-projeto">O Projeto</h2>
+<p>O grafo atribuído (ID 25) para a matrícula <strong>224115861</strong> corresponde ao conjunto de dados <strong>LiveJournal social network and ground-truth communities</strong>, caracterizado por ser um grafo não direcionado contendo 3.997.962 nós e 34.681.189 arestas.</p>
+<p>Devido à escala multimilionária do grafo, as análises foram executadas no ambiente do <strong>BAMBU Lab (UFBA)</strong> utilizando GPUs <strong>NVIDIA RTX A4000</strong> com a suíte <strong>NVIDIA RAPIDS</strong> (<code>cuGraph</code> / <code>cuDF</code>), alcançando speedups de até <strong>553×</strong> em relação a execuções sequenciais em CPU.</p>
 </section>
+<section id="executando-localmente" class="level2">
+<h2 class="anchored" data-anchor-id="executando-localmente">Executando Localmente</h2>
+<p>Se você deseja rodar os notebooks (<code>parte1_all.ipynb</code> e <code>parte1_ungraph.ipynb</code>) ou scripts localmente:</p>
+<ol type="1">
+<li><p><strong>Clonar o repositório:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/Carolbalbs/tp-final.git</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> tp-final</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p><strong>Instalar dependências de CPU:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-r</span> requirements.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><em>Nota: O código rodará em modo de compatibilidade com NetworkX se nenhuma GPU NVIDIA estiver disponível.</em></p></li>
+<li><p><strong>Instalar dependências de GPU (Opcional):</strong> Para habilitar aceleração por hardware, instale a suíte <a href="https://rapids.ai">NVIDIA RAPIDS</a> em seu ambiente Linux configurado com CUDA.</p></li>
+<li><p><strong>Executar o Jupyter Notebook:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter</span> notebook</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+</ol>
 </section>
 <section id="créditos" class="level2">
 <h2 class="anchored" data-anchor-id="créditos">Créditos</h2>
-<p>Desenvolvido na Universidade Federal da Bahia por Ana Carolina Balbino. Agradeço ao <a href="https://snap.stanford.edu/index.html">SNAP - Stanford Network Analysis Project</a> pela disponibilização do dataset! Agradeço também aos colegas de <a href="https://sigaa.ufba.br/sigaa/public/departamento/componentes.jsf?id=1114">MATA53 - Teoria dos Grafos (2026.1)</a> e ao professor <a href="https://bps90.github.io/">Dr.&nbsp;Bruno P. S.</a> responsável pela componente, que nos incentivou a explorar na prática todo o conteúdo visto durante o curso.</p>
+<p>Desenvolvido na Universidade Federal da Bahia por <strong>Ana Carolina Balbino</strong>. Agradecemos ao <strong>BAMBU Lab (UFBA)</strong> pelo suporte computacional e ao <strong>SNAP</strong> pela disponibilização do dataset. Agradecemos também ao professor <strong>Dr.&nbsp;Bruno P. S.</strong> e aos colegas da disciplina <strong>MATA53 - Teoria dos Grafos (2026.1)</strong> pelo incentivo e discussões.</p>
 
 
 </section>
