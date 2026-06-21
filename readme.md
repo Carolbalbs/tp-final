@@ -46,11 +46,11 @@ Os scripts foram disparados em segundo plano dentro de um container Podman (`pro
 Para rodar os experimentos principais no servidor:
 ```bash
 # Executa o script driver no container em segundo plano redirecionando logs
-podman exec -d projeto_odonto bash -c \
-  "/opt/grafos-env/bin/python /shared/driver.py > /shared/driver.log 2>&1"
+podman exec -d snap_analysis bash -c \
+  "/opt/grafos-env/bin/python /shared/codigo.py > /shared/arquivo.log 2>&1"
 
 # Acompanha a execução em tempo real pelos logs
-podman exec -it projeto_odonto tail -f /shared/driver.log
+podman exec -it projeto_odonto tail -f /shared/arquivo.log
 ```
 
 ### 2. Execução Local dos Notebooks (.ipynb)
