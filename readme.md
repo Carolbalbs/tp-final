@@ -38,55 +38,91 @@ As análises pesadas e os benchmarks dos algoritmos foram rodados em um servidor
 
 ---
 
-## Instruções de Execução
+# 1.Instruções de Execução
 
-### 1. Execução Remota no Servidor (Podman)
-Os scripts foram disparados em segundo plano dentro de um container Podman (`projeto_odonto`) com acesso mapeado à GPU 1. 
-
-Para rodar os experimentos principais no servidor:
+## 2. Criação do Container
+ 
 ```bash
-# Executa o script driver no container em segundo plano redirecionando logs
-podman exec -d snap_analysis bash -c \
-  "/opt/grafos-env/bin/python /shared/codigo.py > /shared/arquivo.log 2>&1"
-
-# Acompanha a execução em tempo real pelos logs
-podman exec -it projeto_odonto tail -f /shared/arquivo.log
+# Cria o container com suporte a GPU
+podman run -d \
+  --name snap_analysis \
+  --device nvidia.com/gpu=all \
+  --security-opt=label=disable \
+  -v /shared:/shared \
+  python:3.11-slim \
+  sleep infinity
+ 
+# Confirma que o container está rodando
+podman ps
 ```
+ 
+Verificar acesso à GPU dentro do container:
+```bash
+podman exec -it snap_analysis nvidia-smi
+```
+ 
+---
+ 
+## 3. Configuração do Ambiente Virtual
+ 
+As bibliotecas cuDF e cuGraph são incompatíveis com TensorFlow (conflito de versão do NumPy). Por isso, criou-se um ambiente virtual isolado:
+ 
+```bash
+podman exec -it snap_analysis bash -c "
+python3 -m venv /opt/grafos-env
+"
+```
+ 
+### 3.1 Instalação das dependências
+ 
+```bash
+podman exec -it snap_analysis bash -c "
+/opt/grafos-env/bin/pip install --upgrade pip && \
+/opt/grafos-env/bin/pip install \
+    'numpy>=2.0' \
+    cudf-cu12 \
+    cugraph-cu12 \
+    networkx \
+    matplotlib \
+    scipy \
+    --extra-index-url https://pypi.nvidia.com
+"
+```
+ 
+### 3.2 Verificação do ambiente
+ 
+```bash
+podman exec -it snap_analysis /opt/grafos-env/bin/python -c "
+import numpy;     print('numpy    :', numpy.__version__)
+import cudf;      print('cudf     : OK')
+import cugraph;   print('cugraph  : OK')
+import networkx;  print('networkx :', networkx.__version__)
+import scipy;     print('scipy    :', scipy.__version__)
+import matplotlib; print('matplotlib:', matplotlib.__version__)
+"
+```
+ 
+### 3.3 Tabela de bibliotecas utilizadas
+ 
+| Biblioteca | Uso | Onde roda |
+|---|---|---|
+| `cudf` | Leitura de CSV e manipulação de DataFrames na GPU | GPU |
+| `cugraph` | BFS, SSSP, componentes conexas, triângulos, MST | GPU |
+| `networkx` | DFS, Eulerianidade, Bellman-Ford, Floyd-Warshall, Tarjan, Kruskal | CPU |
+| `numpy` | Cálculos estatísticos (média, desvio padrão, IC) | CPU |
+| `scipy.stats` | Distribuições Normal e t-Student para IC 95% | CPU |
+| `matplotlib` | Geração de gráficos e figuras | CPU |
+| `collections` | Contagem de frequências (distribuição de graus) | CPU |
+| `pickle` | Checkpoint de resultados entre scripts | CPU |
+| `gc` | Coleta de lixo explícita para liberar memória GPU | CPU |
+| `os` | Configuração de `CUDA_VISIBLE_DEVICES` | CPU |
+| `random` | Amostragem aleatória de nós | CPU |
+| `time` | Medição de tempo de execução (`time.perf_counter`) | CPU |
+| `warnings` | Supressão de avisos não críticos | CPU |
+ 
+---
 
-### 2. Execução Local dos Notebooks (.ipynb)
-Os arquivos `parte1_all.ipynb` e `parte1_ungraph.ipynb` estão disponíveis na raiz do projeto. 
-
-> ⚠️ **Nota sobre dependências de GPU:** A biblioteca `cugraph` e `cudf` (RAPIDS) exigem um ambiente Linux com placas NVIDIA e drivers CUDA configurados. Se você não possuir uma GPU NVIDIA localmente, poderá rodar os códigos usando os blocos de fallback baseados em CPU com a biblioteca **NetworkX**.
-
-#### Passo a Passo para Instalação Local:
-
-1. **Clonar o Repositório:**
-   ```bash
-   git clone https://github.com/Carolbalbs/tp-final.git
-   cd tp-final
-   ```
-
-2. **Criar e Ativar Ambiente Virtual:**
-   ```bash
-   python3 -m venv venv
-   source venv/bin/activate
-   ```
-
-3. **Instalar Dependências:**
-   - **Apenas CPU (NetworkX e processamento comum):**
-     ```bash
-     pip install pandas scipy networkx matplotlib jupyter
-     ```
-   - **Com suporte a GPU (NVIDIA RAPIDS - cuGraph e cuDF):**
-     Siga as instruções oficiais do [NVIDIA RAPIDS Installer](https://rapids.ai/start.html) usando `conda` ou `mamba` (recomendado para gerenciar pacotes CUDA). Exemplo via conda:
-     ```bash
-     conda create -n rapids-24.xx -c rapidsai -c conda-forge -c nvidia \
-         cugraph cudf python=3.10 cuda-version=12.6
-     conda activate rapids-24.xx
-     pip install -r requirements.txt
-     ```
-
-4. **Iniciar o Jupyter:**
+### 4. **Iniciar o Jupyter:**
    ```bash
    jupyter notebook
    ```
