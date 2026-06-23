@@ -101,8 +101,16 @@ import scipy;     print('scipy    :', scipy.__version__)
 import matplotlib; print('matplotlib:', matplotlib.__version__)
 "
 ```
- 
-### 3.3 Tabela de bibliotecas utilizadas
+### 3.3 Executa o script no container em segundo plano redirecionando logs
+```bash
+podman exec -d snap_analysis bash -c \
+"/opt/grafos-env/bin/python /shared/codigo.py > /shared/arquivo.log 2>&1"
+```
+### 3.4 Acompanha a execução em tempo real pelos logs
+```bash
+  podman exec -it snap_analysis tail -f /shared/arquivo.log 
+```  
+### 3.5 Tabela de bibliotecas utilizadas
  
 | Biblioteca | Uso | Onde roda |
 |---|---|---|
